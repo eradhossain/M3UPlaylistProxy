@@ -465,11 +465,7 @@ http://example.com/playlist.m3u8
                 fullUrl += "&data=" + urlEncodedData;
             }
 
-            // Check if epgMerging is checked, and add it to the URL
-            const epgMergingChecked = document.getElementById('epgMerging').checked;
-            if (epgMergingChecked) {
-                fullUrl ;
-            }
+
 
             // Collect unchecked group titles for exclusion
             let excludedGroups = [];
