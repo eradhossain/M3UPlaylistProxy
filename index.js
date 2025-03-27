@@ -455,7 +455,7 @@ http://example.com/playlist.m3u8
             });
 
             const baseUrl = window.location.origin;
-            let fullUrl = baseUrl + "?url=" + encodeURIComponent(playlistUrl);
+            let fullUrl = baseUrl + "/playlist?url=" + encodeURIComponent(playlistUrl);
 
             // Encode headers if present
             if (headers.length > 0) {
@@ -465,7 +465,11 @@ http://example.com/playlist.m3u8
                 fullUrl += "&data=" + urlEncodedData;
             }
 
-
+            // Check if epgMerging is checked, and add it to the URL
+            const epgMergingChecked = document.getElementById('epgMerging').checked;
+            if (epgMergingChecked) {
+                fullUrl += "&epgMerging=true";
+            }
 
             // Collect unchecked group titles for exclusion
             let excludedGroups = [];
@@ -1274,4 +1278,3 @@ async function setLastCheckedTimestamp(token, timestamp) {
   if (storage && storage.set) await storage.set(`lastCheckedTimestamp:${token}`, timestamp);
   else lastCheckedTimestamps[token] = timestamp;
 }
-
