@@ -455,7 +455,7 @@ http://example.com/playlist.m3u8
             });
 
             const baseUrl = window.location.origin;
-            let fullUrl = baseUrl + "/playlist?url=" + encodeURIComponent(playlistUrl);
+            let fullUrl = baseUrl + "?url=" + encodeURIComponent(playlistUrl);
 
             // Encode headers if present
             if (headers.length > 0) {
